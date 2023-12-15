@@ -1,0 +1,30 @@
+[
+    {
+        "model": "seed_properties.effect",
+        "pk": 1,
+        "fields": {
+          "effect_name": "Energético"
+        }
+    },   
+    {
+        "model": "seed_properties.effect",
+        "pk": 2,
+        "fields": {
+          "effect_name": "Efusividad"
+        }
+    },
+    {
+        "model": "seed_properties.effect",
+        "pk": 3,
+        "fields": {
+          "effect_name": "Eufórico"
+        }
+    },
+    {
+        "model": "seed_properties.effect",
+        "pk": 4,
+        "fields": {
+          "effect_name": "Relajante"
+        }
+    }
+]

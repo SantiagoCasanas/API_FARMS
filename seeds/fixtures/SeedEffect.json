@@ -1,0 +1,50 @@
+[
+    {
+      "model": "seed_properties.seedeffect",
+      "pk": 1,
+      "fields": {
+        "seed_id": 1,
+        "effect_id": 1
+      }
+    },
+    {
+      "model": "seed_properties.seedeffect",
+      "pk": 2,
+      "fields": {
+        "seed_id": 1,
+        "effect_id": 2
+      }
+    },
+    {
+      "model": "seed_properties.seedeffect",
+      "pk": 3,
+      "fields": {
+        "seed_id": 2,
+        "effect_id": 1
+      }
+    },
+    {
+      "model": "seed_properties.seedeffect",
+      "pk": 4,
+      "fields": {
+        "seed_id": 2,
+        "effect_id": 3
+      }
+    },
+    {
+      "model": "seed_properties.seedeffect",
+      "pk": 5,
+      "fields": {
+        "seed_id": 3,
+        "effect_id": 2
+      }
+    },
+    {
+      "model": "seed_properties.seedeffect",
+      "pk": 6,
+      "fields": {
+        "seed_id": 3,
+        "effect_id": 4
+      }
+    }
+]

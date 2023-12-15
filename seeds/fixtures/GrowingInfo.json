@@ -1,0 +1,32 @@
+[
+    {
+      "model": "seeds.growinginfo",
+      "pk": 1,
+      "fields": {
+        "seed_id": 1,
+        "flowering_time": 9,
+        "harvest_time": 11,
+        "grow_dificulty": "Medium"
+      }
+    },
+    {
+      "model": "seeds.growinginfo",
+      "pk": 2,
+      "fields": {
+        "seed_id": 2,
+        "flowering_time": 8,
+        "harvest_time": 10,
+        "grow_dificulty": "Low"
+      }
+    },
+    {
+      "model": "seeds.growinginfo",
+      "pk": 3,
+      "fields": {
+        "seed_id": 3,
+        "flowering_time": 9,
+        "harvest_time": 11,
+        "grow_dificulty": "Medium"
+      }
+    }
+]

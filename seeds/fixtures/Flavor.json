@@ -1,0 +1,31 @@
+[
+    {
+        "model": "seed_properties.flavor",
+        "pk": 1,
+        "fields": {
+          "flavor_name": "Afrutado"
+        }
+    },   
+    {
+        "model": "seed_properties.flavor",
+        "pk": 2,
+        "fields": {
+          "flavor_name": "Skunky"
+        }
+    },
+    {
+        "model": "seed_properties.flavor",
+        "pk": 3,
+        "fields": {
+          "flavor_name": "Cítrico"
+        }
+    },
+    {
+        "model": "seed_properties.flavor",
+        "pk": 4,
+        "fields": {
+          "flavor_name": "Terroso"
+        }
+    }
+]
+  

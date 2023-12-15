@@ -1,0 +1,26 @@
+#API GRANJAS
+
+API para manejo de granjas, con su tamaño, cantidad de parcelas, tipo de semillas.
+Además de la descripción y caracteristicas de dichas semillas.
+También se puede acceder al clima registrado en las granjas dada su ubicación.
+
+Para ejecutar el proyecto:
+1. Clonar el repositorio en tu pc.
+2. Crear un ambiente virtual afuera del proyecto con:
+python -m ven venv
+3. Activar el ambiente con:
+source venv/Srcipts/activate
+4. Entrar al proyecto con:
+cd API_Granjas
+5. Instalar los requerimientos con:
+pip install -r requirements.txt
+6. Crear las migraciones y enviarlas a la base de datos:
+python manage.py makemigrations
+python manage.py migrate
+7. Corre el proyecto:
+python manage.py runserver
+
+#Rutas para el proyecto
+
+
+-App del clima:

@@ -1,0 +1,32 @@
+[
+    {
+      "model": "seeds.seeds",
+      "pk": 1,
+      "fields": {
+        "species_name": "Strawberry Cough",
+        "description": "Energizante y eufórico. Puede ser útil para aliviar el estrés y la ansiedad.",
+        "cbd": 1.0,
+        "thc": 20.0
+      }
+    },
+    {
+      "model": "seeds.seeds",
+      "pk": 2,
+      "fields": {
+        "species_name": "Blue Dream",
+        "description": "Equilibrio entre euforia y relajación. Ideal para el alivio del dolor y el estrés.",
+        "cbd": 0.9,
+        "thc": 19.0
+      }
+    },
+    {
+      "model": "seeds.seeds",
+      "pk": 3,
+      "fields": {
+        "species_name": "OG Kush",
+        "description": "Relajante y eufórico. A menudo se utiliza para el alivio del dolor y el insomnio.",
+        "cbd": 0.8,
+        "thc": 10.0
+      }
+    }
+]

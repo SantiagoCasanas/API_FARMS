@@ -1,0 +1,30 @@
+[
+    {
+        "model": "seed_properties.smell",
+        "pk": 1,
+        "fields": {
+          "smell_name": "Frutal"
+        }
+    },
+      {
+        "model": "seed_properties.smell",
+        "pk": 2,
+        "fields": {
+          "smell_name": "Skunky"
+        }
+    },
+    {
+        "model": "seed_properties.smell",
+        "pk": 3,
+        "fields": {
+          "smell_name": "Cítrico"
+        }
+    },
+    {
+        "model": "seed_properties.smell",
+        "pk": 4,
+        "fields": {
+          "smell_name": "Terroso"
+        }
+    }
+]

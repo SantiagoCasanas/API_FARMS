@@ -1,0 +1,50 @@
+[
+    {
+      "model": "seed_properties.seedflavor",
+      "pk": 1,
+      "fields": {
+        "seed_id": 1,
+        "flavor_id": 1
+      }
+    },
+    {
+      "model": "seed_properties.seedflavor",
+      "pk": 2,
+      "fields": {
+        "seed_id": 1,
+        "flavor_id": 2
+      }
+    },
+    {
+      "model": "seed_properties.seedflavor",
+      "pk": 3,
+      "fields": {
+        "seed_id": 2,
+        "flavor_id": 1
+      }
+    },
+    {
+      "model": "seed_properties.seedflavor",
+      "pk": 4,
+      "fields": {
+        "seed_id": 2,
+        "flavor_id": 3
+      }
+    },
+    {
+      "model": "seed_properties.seedflavor",
+      "pk": 5,
+      "fields": {
+        "seed_id": 3,
+        "flavor_id": 2
+      }
+    },
+    {
+      "model": "seed_properties.seedflavor",
+      "pk": 6,
+      "fields": {
+        "seed_id": 3,
+        "flavor_id": 4
+      }
+    }
+]
