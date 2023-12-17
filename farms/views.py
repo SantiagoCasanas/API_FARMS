@@ -6,7 +6,7 @@ from .models import Farm, Parcel
 from seeds.models import Seeds
 from rest_framework.response import Response
 from rest_framework import status
-from .utils import obtener_info_usuario
+from .utils import obtener_info_usuario, crear_granja, crear_parcela
 import jwt
 
 
@@ -32,15 +32,18 @@ class CreateFarmView(APIView):
                 return Response({'Client Error': 'Missing required parameters farm_name, farm_latitude  or farm_longitude'},
                                 status=status.HTTP_400_BAD_REQUEST
                                 )
-            farm = Farm.create_farm(
+            farm = crear_granja(
                 int(user_id),
                 farm_name,
                 float(farm_latitude),
                 float(farm_longitude)
                 )
-            serializer = FarmSerializer(farm)
-            serialized_data = serializer.data
-            return Response(serialized_data, status=status.HTTP_201_CREATED)
+            if farm is None:
+                return Response({'error': 'The user has reached the limit of farms'}, status=status.HTTP_400_BAD_REQUEST)
+            else:
+                serializer = FarmSerializer(farm)
+                serialized_data = serializer.data
+                return Response(serialized_data, status=status.HTTP_201_CREATED)
         except Exception as e:
             return Response({'error': str(e)}, status= status.HTTP_500_INTERNAL_SERVER_ERROR)
 
@@ -78,16 +81,20 @@ class CreateParcelView(APIView):
                 return Response({'Client Error': 'This farm does not belong to the user'},
                                 status=status.HTTP_400_BAD_REQUEST
                                 )
-            parcel = Parcel.create_parcel(
+            parcel = crear_parcela(
+                user_id,
                 farm,
                 seed,
                 float(width),
                 float(length),
                 crop_modality
             )
-            serializer = ParcelSerializer(parcel)
-            serialized_data = serializer.data
-            return Response(serialized_data, status=status.HTTP_201_CREATED)
+            if parcel is None:
+                return Response({'error': 'The user has reached the limit of parcels'}, status=status.HTTP_400_BAD_REQUEST)
+            else:
+                serializer = ParcelSerializer(parcel)
+                serialized_data = serializer.data
+                return Response(serialized_data, status=status.HTTP_201_CREATED)
         except Exception as e:
             return Response({'error': str(e)}, status= status.HTTP_500_INTERNAL_SERVER_ERROR)
 
