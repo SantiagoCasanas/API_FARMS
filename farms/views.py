@@ -165,8 +165,8 @@ class FarmListAPIView(APIView):
 
     def get(self, request):
         try:
-            data = request.data
-            token = data.get('token', None)
+            data = request.headers
+            token = data.get('Authorization', None).split(' ')[1] if ' ' in token else None
             user_id = jwt.decode(token, options={"verify_signature": False})['userId']
             if not token or not user_id:
                 return Response({'Client Error': 'Missing required parameters token or inexistent user'},
@@ -191,8 +191,8 @@ class ParcelListAPIView(APIView):
 
     def get(self, request):
         try:
-            data = request.data
-            token = data.get('token', None)
+            data = request.headers
+            token = data.get('Authorization', None).split(' ')[1] if ' ' in token else None
             user_id = jwt.decode(token, options={"verify_signature": False})['userId']
             if not token or not user_id:
                 return Response({'Client Error': 'Missing required parameters token or inexistent user'},
