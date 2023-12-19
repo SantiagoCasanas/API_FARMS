@@ -202,6 +202,7 @@ class ParcelListAPIView(APIView):
             if 'error' in user_data:
                 return Response({'error': str(user_data['error'])}, status= user_data['status_code'])
             queryset = self.filterset_class(request.GET, queryset=self.queryset).qs
+            print(queryset)
             serializer = self.serializer_class(queryset, many=True)
             return Response(serializer.data, status=status.HTTP_200_OK)
         except Exception as e:

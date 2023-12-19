@@ -5,7 +5,7 @@ import requests
 from .models import Farm, Parcel
 
 URL_API_CRUD = "https://weedweb-crud.onrender.com/users/api/"
-URL_API_FREEMIUN = "http://localhost:9000/freemiun/"
+URL_API_FREEMIUN = "https://freemiun-api.onrender.com/freemiun/"
 
 def obtener_info_usuario(access_token, user_id)-> Dict[str, Any]:
     """
@@ -45,11 +45,11 @@ def obtener_info_sub(user_id)-> Dict[str, Any]:
         return {'data': data, 'status_code': response.status_code}
 
     except requests.exceptions.HTTPError as err:
-        return {'error': err, 'status_code': response.status_code}
+        return {'error2': err, 'status_code': response.status_code}
     except json.JSONDecodeError as err:
-        return {'error': err, 'status_code': response.status_code}
+        return {'error2': err, 'status_code': response.status_code}
     except Exception as err:
-        return {'error': err, 'status_code': response.status_code}
+        return {'error2': err, 'status_code': response.status_code}
     
 def obtener_info_plan_sub(plan_id)-> Dict[str, Any]:
     extra_url = f'plan-subscription/{plan_id}/'
@@ -61,11 +61,11 @@ def obtener_info_plan_sub(plan_id)-> Dict[str, Any]:
         return {'data': data, 'status_code': response.status_code}
 
     except requests.exceptions.HTTPError as err:
-        return {'error': err, 'status_code': response.status_code}
+        return {'error1': err, 'status_code': response.status_code}
     except json.JSONDecodeError as err:
-        return {'error': err, 'status_code': response.status_code}
+        return {'error1': err, 'status_code': response.status_code}
     except Exception as err:
-        return {'error': err, 'status_code': response.status_code}
+        return {'error1': err, 'status_code': response.status_code}
     
 def crear_granja(user_id, farm_name, farm_latitude, farm_longitude):
     data_sub = obtener_info_sub(user_id)['data']
@@ -97,9 +97,12 @@ def crear_granja(user_id, farm_name, farm_latitude, farm_longitude):
 
 def crear_parcela(user_id, farm, seed, width, length, crop_modality):
     data_sub = obtener_info_sub(user_id)['data']
-    
+    granjas_del_usuario = Farm.objects.filter(user_id=user_id)
+    ids_granjas_del_usuario = granjas_del_usuario.values_list('id', flat=True)
+    parcelas_en_granjas_del_usuario = Parcel.objects.filter(farm__id__in=ids_granjas_del_usuario)
+
     if 'Freemiun' in data_sub:
-        if Farm.objects.filter(user_id=user_id).exists():
+        if parcelas_en_granjas_del_usuario.count() >= 6:
             return None
         else:
             parcel = Parcel.create_parcel(
@@ -112,8 +115,8 @@ def crear_parcela(user_id, farm, seed, width, length, crop_modality):
             return parcel
     else:
         data_plan = obtener_info_plan_sub(data_sub["plan_subscription"])['data']
-        max_farms = int(data_plan["farms"])
-        if Farm.objects.filter(user_id=user_id).count() >= max_farms:
+        max_parcels = int(data_plan["parcels"])
+        if parcelas_en_granjas_del_usuario.count() >= max_parcels:
             return None
         else:
             parcel = Parcel.create_parcel(

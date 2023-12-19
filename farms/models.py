@@ -45,7 +45,7 @@ class Parcel(models.Model):
 
     CHOICES_CROP_MODALITY = (('Outdoor', 'Outdoor'), ('Indoor', 'Indoor'))
 
-    farm = models.ForeignKey(Farm, on_delete=models.PROTECT)
+    farm = models.ForeignKey(Farm, related_name="farm", on_delete=models.PROTECT)
     seed = models.ForeignKey(Seeds, on_delete=models.PROTECT)
     width = models.DecimalField(max_digits=5, decimal_places=2)
     length = models.DecimalField(max_digits=5, decimal_places=2)
